@@ -1,0 +1,60 @@
+/*
+#------------------------------------------------------------------------
+# AppsPro Tech - March Joomla! template (for Joomla 2.5)
+#
+# Copyright (C) 2007-2012 Gavick.com. All Rights Reserved.
+# License: Copyrighted Commercial Software
+# Website: http://www.gavick.com
+# Support: support@gavick.com 
+*/
+
+/* Base for all menus */
+#gkMainMenu { text-align: center; }
+.gkMenu { display: inline-block; }
+#gkMainMenu.hasSearch { text-align: left; } /* hasSearch when search is enabled ... */
+#gkMainMenu.hasSearch .gkMenu { display: block; float: left; } /* ... then menu goes left */
+.gkMenu > ul { }
+.gkMenu > ul > li { float: left; width: auto; }
+.gkMenu > ul > li > a { display: block; }
+.gkMenu > ul > li a small { display: block; font-size: 11px; line-height: 11px; }
+.gkMenu > ul > li > .childcontent,
+.gkMenu > ul > li > .childcontent .childcontent { position: absolute; left: -999em; z-index: 999; }
+.gkMenu > ul > li > .childcontent .gkcol { float: left; }
+.gkMenu > ul > li:hover > .childcontent,
+.gkMenu > ul > li:hover > .childcontent li:hover > .childcontent { left: inherit; }
+.gkMenu > ul > li:hover > .childcontent .childcontent { margin-left: 140px!important; margin-top: -35px!important; }
+/* main menu CSS */
+.gkMenu { position:relative; margin: 0; z-index:1000; }
+.gkMenu > ul { height: 39px; margin: 0; padding: 0 32px; background: transparent url('../../images/style1/menu_bg.png') repeat-x 0 0; box-shadow: 0px 1px 3px #c24921; border-radius: 20px; }
+.gkMenu > ul > li { height: 39px; font-size: 18px; font-weight: normal; background: transparent url('../../images/style1/menu_bg.png') no-repeat left -39px; }
+.gkMenu > ul > li:first-child { background: none; }
+.gkMenu > ul > li > a { color: #eb592a; display: block; height: 39px; line-height: 40px; margin: 0; padding: 0 30px; text-shadow: 0 1px 1px #fff; }
+.gkMenu > ul > li:hover > a,
+.gkMenu > ul > li:active > a,
+.gkMenu > ul > li:focus > a,
+.gkMenu > ul > li.active:hover > a,
+.gkMenu > ul > li.active:active > a,
+.gkMenu > ul > li.active:focus > a { color: #353639; }
+.gkMenu > ul > li.active > a { color: #353639; }
+.gkMenu > ul ul { margin: 0; padding: 0; }
+.gkMenu > ul div.childcontent { padding-top: 6px; }
+.gkMenu > ul div.childcontent:before { width: 33px; height: 26px; background: transparent url('../../images/style1/tabs_arrow.png') no-repeat 0 0; content: ""; display: block; margin: 0 0 -10px 16px; }
+.gkMenu > ul div.childcontent div.childcontent:before { display: none; }
+.gkMenu > ul div.childcontent div.childcontent { padding-top: 0!important; margin-top: -10px; }
+.gkMenu > ul div.childcontent-inner { background: #fff; box-shadow: 0 3px 3px #ddd; padding: 6px 0; overflow: hidden; text-align: left; }
+.gkMenu > ul div.childcontent-inner { border-radius: 8px; }
+.gkMenu > ul div.childcontent-inner .childcontent-inner { box-shadow: 0 1px 3px #ddd; }
+.gkMenu > ul > li > .childcontent .gkcol { padding-bottom: 0; }
+.gkMenu > ul div.childcontent li { font-weight: normal; margin: 0 20px; padding: 3px 0; border-top: 1px solid #eee; }
+.gkMenu > ul div.childcontent li:first-child { border: none; }
+.gkMenu > ul div.childcontent a { font-size: 15px; color: #777; display:block; min-height: 24px; }
+.gkMenu > ul div.childcontent small { color: #a6a6a6; margin: 0 0 6px  }
+.gkMenu > ul div.childcontent li.group { padding: 0; margin: 0; height: auto; border: none!important; background: none; }
+.gkMenu > ul div.childcontent li.active > a,
+.gkMenu > ul div.childcontent li:hover > a,
+.gkMenu > ul div.childcontent li > a:hover { color: #eb592a; }
+.gkMenu > ul div.childcontent header { padding: 8px 0 0; display: block; color: #fff; border-bottom: 2px solid #eee; margin: 2px 20px 6px; }
+.gkMenu > ul div.childcontent header a { font-size: 16px; line-height: 24px; color:#eb592a; text-transform: uppercase; }
+.gkMenu > ul div.childcontent header small { display: block; text-transform: none; }
+#gkMainMenu { clear: both; }
+#gkMainMenu .module p { font-size: 12px; line-height: 18px; }
