@@ -1,541 +1,1257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
   <title>All Acts | Yogi's Angels – International Entertainment</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Explore all international entertainment acts by Yogi's Angels – pyro shows, aerial acts, laser angels, interactive performers, water-based acts and more for weddings, corporate events and luxury celebrations." />
-  <link rel="icon" href="/yogisangels/images/favicon.ico" />
-  <link rel="stylesheet" href="/yogisangels/assets/css/site.css" />
-  <link rel="canonical" href="https://www.yogisangels.com/acts/" />
-</head>
-<body>
-<div class="site-wrap">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="Browse all international entertainment acts by Yogi's Angels – aerial, fire, LED, bar, interactive and water-based shows for luxury weddings and corporate events.">
 
-  <!-- Header -->
+  <!-- Basic reset + layout (inline for now so we don’t touch your existing CSS) -->
+  <style>
+    :root {
+      --bg: #050608;
+      --bg-alt: #0e1117;
+      --accent: #f6c453;
+      --accent-soft: rgba(246,196,83,0.14);
+      --text: #f7f7f7;
+      --muted: #a4acb9;
+      --card-bg: #121621;
+      --border-subtle: #272b36;
+      --radius-lg: 18px;
+      --radius-xl: 28px;
+      --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151b2e 0, #050608 60%);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 4rem;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    /* Header / nav */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.5rem;
+      background: rgba(3, 5, 10, 0.85);
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0.75rem;
+      z-index: 40;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .brand-title {
+      font-size: 0.95rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .brand-tagline {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-links a {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.nav-active {
+      color: #111;
+      background: var(--accent);
+    }
+
+    .whatsapp-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 255, 135, 0.5);
+      background: rgba(0, 0, 0, 0.6);
+      font-size: 0.82rem;
+      color: #9cfabf;
+    }
+
+    .whatsapp-pill span {
+      font-size: 1.05rem;
+    }
+
+    /* Hero */
+    .hero {
+      margin-top: 1.75rem;
+      margin-bottom: 1.5rem;
+      padding: 1.75rem 1.5rem 1.75rem;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, rgba(246,196,83,0.2), transparent 55%),
+                  radial-gradient(circle at bottom right, #14192a, #050608 60%);
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-kicker {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.26em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 3vw, 2.4rem);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 46rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-tags span {
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: var(--muted);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-top: 0.25rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #111;
+      box-shadow: 0 12px 30px rgba(246,196,83,0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(246,196,83,0.6);
+    }
+
+    .btn-ghost {
+      background: rgba(6,10,20,0.8);
+      border-color: rgba(255,255,255,0.16);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Section headings */
+    .section {
+      margin-top: 2.25rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    /* Grid */
+    .acts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .act-card {
+      background: linear-gradient(150deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.45);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .act-media {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .act-media img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.03);
+      transition: transform 0.3s ease;
+    }
+
+    .act-badge {
+      position: absolute;
+      left: 0.9rem;
+      bottom: 0.85rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      background: rgba(0,0,0,0.75);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--accent);
+    }
+
+    .act-body {
+      padding: 0.9rem 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      flex: 1;
+    }
+
+    .act-name {
+      font-size: 0.98rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .act-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .act-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.35rem;
+      font-size: 0.76rem;
+    }
+
+    .act-tags span {
+      padding: 0.16rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted);
+    }
+
+    .act-footer {
+      margin-top: 0.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .act-link {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .act-link span {
+      font-size: 1rem;
+    }
+
+    .act-download {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .act-download strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .act-card:hover .act-media img {
+      transform: scale(1.06);
+    }
+
+    /* Simple “load more” on scroll */
+    .act-card.hidden {
+      opacity: 0;
+      transform: translateY(18px);
+      pointer-events: none;
+    }
+
+    .act-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .load-more-hint {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Footer mini */
+    .footer-mini {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-mini a {
+      color: var(--accent);
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding: 1.25rem 1.1rem 1.4rem;
+      }
+    }
+  </style>
+
+  <script>
+    // Reveal cards on scroll (simple SEO-safe enhancement)
+    document.addEventListener('DOMContentLoaded', function () {
+      const cards = Array.from(document.querySelectorAll('.act-card'));
+      if (!('IntersectionObserver' in window)) {
+        cards.forEach(c => c.classList.add('visible'));
+        return;
+      }
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, {rootMargin: '0px 0px -10% 0px'});
+
+      cards.forEach(c => observer.observe(c));
+    });
+  </script>
+</head>
+
+<body>
+<div class="page-shell">
+
+  <!-- HEADER -->
   <header class="site-header">
-    <div class="header-inner">
-      <a href="/yogisangels/index.html" class="brand">
-        <img src="/yogisangels/images/logo.jpg" alt="Yogi's Angels logo" class="brand-logo" />
-        <div>
-          <div class="brand-text-main">Yogi's Angels</div>
-          <div class="brand-text-tagline">The Original Source of Unique International Entertainment</div>
-        </div>
+    <a class="brand" href="/yogisangels/">
+      <img src="/yogisangels/images/logo.jpg" alt="Yogi's Angels logo">
+      <div>
+        <div class="brand-title">Yogi's Angels</div>
+        <div class="brand-tagline">International Entertainment</div>
+      </div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="/yogisangels/">Home</a>
+      <a href="/yogisangels/aboutus/">About Us</a>
+      <a href="/yogisangels/acts/" class="nav-active">All Acts</a>
+      <a href="/yogisangels/contacts/">Contact</a>
+      <a href="https://wa.me/919011080000" class="whatsapp-pill" target="_blank" rel="noopener">
+        <span>💬</span> +91 90110 80000
       </a>
-      <nav class="nav">
-        <a href="/yogisangels/index.html">Home</a>
-        <a href="/yogisangels/aboutus/index.html">About Us</a>
-        <a href="/yogisangels/acts/index.html" class="nav-primary">All Acts</a>
-        <a href="/yogisangels/contacts/index.html">Contact</a>
-        <a href="/yogisangels/blog/index.html">Blog</a>
-      </nav>
-    </div>
+    </nav>
   </header>
 
-  <main>
-    <header class="page-hero">
-      <div class="page-kicker">Our Shows</div>
-      <h1 class="page-title">All Signature Acts</h1>
-      <p class="page-subtitle">
-        Over 30+ international entertainment acts designed for weddings, corporate events, stadium shows and private luxury celebrations – all performed by professional international dancers, gymnasts, aerial acrobats, fire dancers and specialty performers based in India.
-      </p>
-    </header>
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="all-acts-heading">
+    <div class="hero-kicker">Complete act catalogue</div>
+    <h1 id="all-acts-heading">
+      All <span>Yogi's Angels</span> acts
+    </h1>
+    <p class="hero-sub">
+      Explore the full line-up of international entertainment acts – aerial entries, fire shows, LED angels,
+      interactive experiences, bar acts and water-based spectacles. Each act has a dedicated page with video
+      and Dropbox download link for client sharing.
+    </p>
+    <div class="hero-tags">
+      <span>Aerial &amp; Fire Angels</span>
+      <span>Stage &amp; Bar Acts</span>
+      <span>Interactive Experiences</span>
+      <span>Water &amp; Pool Shows</span>
+      <span>India &amp; Overseas</span>
+    </div>
+    <div class="hero-cta-row">
+      <a href="https://wa.me/919011080000" target="_blank" rel="noopener" class="btn-primary">
+        WhatsApp showreel &amp; options
+      </a>
+      <a href="/yogisangels/assets/pdfs/all-acts.pdf" class="btn-ghost">
+        Download ALL-IN-ONE PDF
+      </a>
+    </div>
+  </section>
 
-    <section class="section">
-      <div class="section-heading"><span>Grand Entry &amp; Hero Acts</span></div>
-
-      <div class="acts-grid">
-        <!-- Pyro Angels -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/pyro_b.jpg" alt="Pyro Angels – fire & pyrotechnic entry act" />
-          </div>
-          <div class="act-meta">Grand Act · Fire &amp; Pyrotechnics</div>
-          <h2 class="act-name">Pyro Angels</h2>
-          <p class="act-desc">High-impact fire and pyrotechnic angel performance – perfect for bride &amp; groom entries, award reveals and stadium-scale moments.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/pyro/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Phoenix Angels -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/pa_b.jpg" alt="Phoenix Angels – fiery rebirth aerial act" />
-          </div>
-          <div class="act-meta">Grand Act · Aerial &amp; Fire</div>
-          <h2 class="act-name">Phoenix Angels</h2>
-          <p class="act-desc">A dramatic rebirth-from-the-flames concept show with angels, fire elements and aerial visuals for unforgettable opening moments.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/pa/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Helio Angels -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/ha_b.jpg" alt="Helio Angels – LED helio aerial angels" />
-          </div>
-          <div class="act-meta">Grand Act · LED Aerial</div>
-          <h2 class="act-name">Helio Angels</h2>
-          <p class="act-desc">LED helio spheres and angelic aerial choreography – a futuristic, high-energy visual for large stages and premium weddings.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/ha/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Signature Show -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/ss_b.jpg" alt="Signature Show – all-in-one Yogis Angels showcase" />
-          </div>
-          <div class="act-meta">Flagship · All-in-One</div>
-          <h2 class="act-name">Signature Show</h2>
-          <p class="act-desc">The complete Yogis Angels experience – curated segments from multiple acts, stitched into one powerful continuous show.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/ss/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Trio Aerial Act -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/ta_b.jpg" alt="Trio Aerial Act – three aerial acrobats" />
-          </div>
-          <div class="act-meta">Grand Act · Aerial</div>
-          <h2 class="act-name">Trio Aerial Act</h2>
-          <p class="act-desc">Three aerial acrobats in perfect sync – elegant transitions, sculptural shapes and high drama in the air.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/ta/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Cluster Helio Angels -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/cha_b.jpg" alt="Cluster Helio Angels aerial act" />
-          </div>
-          <div class="act-meta">Grand Act · Aerial Cluster</div>
-          <h2 class="act-name">Cluster Helio Angels</h2>
-          <p class="act-desc">Multiple helio spheres and angels performing together, creating a 3D halo of movement above your guests.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/cha/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Trio Helio Angels -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/tha_b.jpg" alt="Trio Helio Angels aerial trio show" />
-          </div>
-          <div class="act-meta">Grand Act · LED Aerial Trio</div>
-          <h2 class="act-name">Trio Helio Angels</h2>
-          <p class="act-desc">Three helio angels weaving patterns in the air – ideal for grand entries and hero cues.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/tha/index.html">View Act</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading"><span>Stage &amp; Feature Acts</span></div>
-
-      <div class="acts-grid">
-        <!-- Laser Angels -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/laa_b.jpg" alt="Laser Angels stage act" />
-          </div>
-          <div class="act-meta">Stage Act · Lasers &amp; Dance</div>
-          <h2 class="act-name">Laser Angels</h2>
-          <p class="act-desc">High-energy choreography fused with laser beams and special effects – perfect for stage reveals and finales.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/laa/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Quick Angels -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/qa_b.jpg" alt="Quick Angels fast-change act" />
-          </div>
-          <div class="act-meta">Stage Act · High-Energy</div>
-          <h2 class="act-name">Quick Angels</h2>
-          <p class="act-desc">Fast-paced, visually rich entertainment ideal between speeches, awards and key show moments.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/qa/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Fusion Angels -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/fa_b.jpg" alt="Fusion Angels multi-style dance act" />
-          </div>
-          <div class="act-meta">Stage Act · Fusion</div>
-          <h2 class="act-name">Fusion Angels</h2>
-          <p class="act-desc">A mix of contemporary, acrobatic and thematic movement ideal for product launches and gala nights.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/fa/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Acro Angels -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/aa_b.jpg" alt="Acro Angels – acrobatic duo/trio" />
-          </div>
-          <div class="act-meta">Stage Act · Acrobatic</div>
-          <h2 class="act-name">Acro Angels</h2>
-          <p class="act-desc">Hand-to-hand balances, lifts and acrobatic stunts that add elegance and power to your stage.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/aa/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Ultra Violet Angels -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/ua_b.jpg" alt="Ultra Violet Angels UV show" />
-          </div>
-          <div class="act-meta">Stage Act · UV &amp; Glow</div>
-          <h2 class="act-name">Ultra Violet Angels</h2>
-          <p class="act-desc">Blacklight, UV costumes and glow visuals – ideal for darkened ballrooms and late-night after-parties.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/ua/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Fire Angels -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/fia_b.jpg" alt="Fire Angels stage act" />
-          </div>
-          <div class="act-meta">Stage Act · Fire</div>
-          <h2 class="act-name">Fire Angels</h2>
-          <p class="act-desc">Fire props, choreography and controlled pyrotechnic visuals by trained international fire performers.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/fia/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Solo Aerial Act -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/saa_b.jpg" alt="Solo Aerial Act" />
-          </div>
-          <div class="act-meta">Stage Act · Aerial Solo</div>
-          <h2 class="act-name">Solo Aerial Act</h2>
-          <p class="act-desc">One breathtaking aerialist performing dramatic drops, spins and shapes over your audience.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/saaa/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Russian Can Can Dancers -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/rccd_b.jpg" alt="Russian Can Can Dancers" />
-          </div>
-          <div class="act-meta">Stage Act · Live Dancers</div>
-          <h2 class="act-name">Russian Can Can Dancers</h2>
-          <p class="act-desc">Classic Can-Can style with international dancers – bright, colourful and high-energy.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/rccd/index.html">View Act</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading"><span>Bar &amp; Champagne Acts</span></div>
-
-      <div class="acts-grid">
-        <!-- Swarovski Champagne Chandelier Bar Act -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/scb_b.jpg" alt="Swarovski Champagne Chandelier Bar Act" />
-          </div>
-          <div class="act-meta">Bar Act · Champagne Service</div>
-          <h2 class="act-name">Swarovski Champagne Chandelier Bar Act</h2>
-          <p class="act-desc">A crystal chandelier installation with live angels serving champagne – a showpiece for luxury receptions.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/cb/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Martini / Champagne Bar Act -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/mb_b.jpg" alt="Martini / Champagne Bar Act" />
-          </div>
-          <div class="act-meta">Bar Act · Feature</div>
-          <h2 class="act-name">Martini Bar Act</h2>
-          <p class="act-desc">A giant martini-style installation with performers interacting and serving, ideal for photo moments and guest arrival.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/mb/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Champagne Lady -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/cl_b.jpg" alt="Champagne Lady roaming act" />
-          </div>
-          <div class="act-meta">Bar Act · Roaming</div>
-          <h2 class="act-name">Champagne Lady</h2>
-          <p class="act-desc">A costumed performer with a mobile structure serving champagne as she moves through your event.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/cl/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Dancing Tables -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/dth_b.jpg" alt="Dancing Tables roaming act" />
-          </div>
-          <div class="act-meta">Bar Act · Roaming</div>
-          <h2 class="act-name">Dancing Tables</h2>
-          <p class="act-desc">Interactive tables that literally dance – ideal during cocktails and pre-function time.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/dth/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Glass Champagne Pyramid -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/gcp_b.jpg" alt="Glass Champagne Pyramid installation" />
-          </div>
-          <div class="act-meta">Bar Act · Feature Installation</div>
-          <h2 class="act-name">Glass Champagne Pyramid</h2>
-          <p class="act-desc">A towering pyramid of glasses styled with performers – iconic photo-op and highlight for luxury events.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/gcp/index.html">View Act</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading"><span>Interactive &amp; Roaming Acts</span></div>
-
-      <div class="acts-grid">
-        <!-- Shooting Star Angels -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/ssa_b.jpg" alt="Shooting Star Angels roaming act" />
-          </div>
-          <div class="act-meta">Interactive · Roaming</div>
-          <h2 class="act-name">Shooting Star Angels</h2>
-          <p class="act-desc">Illuminated angels gliding through your event space like shooting stars, interacting with guests.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/ssa/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Glow Paint Party -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/gpp_b.jpg" alt="Glow Paint Party UV experience" />
-          </div>
-          <div class="act-meta">Interactive · UV &amp; Paint</div>
-          <h2 class="act-name">Glow Paint Party</h2>
-          <p class="act-desc">UV body paint, blacklight and live performers – a full immersive glow party experience.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/gpp/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Rio Carnival -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/rc_b.jpg" alt="Rio Carnival dancers" />
-          </div>
-          <div class="act-meta">Interactive · Parade</div>
-          <h2 class="act-name">Rio Carnival</h2>
-          <p class="act-desc">Feathered costumes, Brazilian-style dancers and parade energy brought directly to your event.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/rc/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Red Carpet Lady -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/rcl_b.jpg" alt="Red Carpet Lady entrance act" />
-          </div>
-          <div class="act-meta">Interactive · Welcome</div>
-          <h2 class="act-name">Red Carpet Lady</h2>
-          <p class="act-desc">A themed performer welcoming guests on the red carpet with style and photo opportunities.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/rcl/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Human Fountain -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/hf_b.jpg" alt="Human Fountain living statue" />
-          </div>
-          <div class="act-meta">Interactive · Living Statue</div>
-          <h2 class="act-name">Human Fountain</h2>
-          <p class="act-desc">A living fountain installation – stillness and surprise as the “statue” comes to life.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/hf/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Flower Girl -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/fg_b.jpg" alt="Flower Girl roaming character" />
-          </div>
-          <div class="act-meta">Interactive · Roaming</div>
-          <h2 class="act-name">Flower Girl</h2>
-          <p class="act-desc">A beautifully costumed flower character perfect for day weddings, garden events and photo trails.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/fg/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Stilt Walkers -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/sw_b.jpg" alt="Stilt Walkers" />
-          </div>
-          <div class="act-meta">Interactive · Height</div>
-          <h2 class="act-name">Stilt Walkers</h2>
-          <p class="act-desc">Tall, costumed stilt performers adding scale and drama to walkways, entries and crowd spaces.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/sw/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Human Statue -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/hs_b.jpg" alt="Human Statue performance" />
-          </div>
-          <div class="act-meta">Interactive · Living Art</div>
-          <h2 class="act-name">Human Statue</h2>
-          <p class="act-desc">Frozen in place until the perfect moment – a living artwork that surprises guests.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/hs/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Mystrees -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/mystrees_b.jpg" alt="Mystrees living tree performers" />
-          </div>
-          <div class="act-meta">Interactive · Living Trees</div>
-          <h2 class="act-name">Mystrees</h2>
-          <p class="act-desc">Mystical tree-like performers that blend with décor and then come alive around your guests.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/mystrees/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Soap Bubble Show -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/sbs_b.jpg" alt="Soap Bubble Show" />
-          </div>
-          <div class="act-meta">Interactive · Family Friendly</div>
-          <h2 class="act-name">Soap Bubble Show</h2>
-          <p class="act-desc">Giant bubbles, bubble tunnels and interactive elements – loved by children and adults alike.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/sbs/index.html">View Act</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading"><span>Water-Based &amp; Special Acts</span></div>
-
-      <div class="acts-grid">
-        <!-- Swimming Pool Show -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/sps_b.jpg" alt="Swimming Pool Show" />
-          </div>
-          <div class="act-meta">Water Act · Pool</div>
-          <h2 class="act-name">Swimming Pool Show</h2>
-          <p class="act-desc">Choreographed performers inside and around your pool – turning the water surface into a stage.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/sps/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- LED Bubble Gymnasts -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/mp/lbg_b.jpg" alt="LED Bubble Gymnasts" />
-          </div>
-          <div class="act-meta">Water Act · LED Bubbles</div>
-          <h2 class="act-name">LED Bubble Gymnasts</h2>
-          <p class="act-desc">Performers inside transparent spheres on water, lit with LEDs – a futuristic, dreamlike visual.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/lbg/index.html">View Act</a>
-          </div>
-        </article>
-
-        <!-- Children's Birthday Act -->
-        <article class="act-card">
-          <div class="act-thumb">
-            <img src="/yogisangels/images/dhav/Pic-2.jpg" alt="Children's birthday / special act" />
-          </div>
-          <div class="act-meta">Kids &amp; Family</div>
-          <h2 class="act-name">Children's Birthday Act</h2>
-          <p class="act-desc">Specially curated international entertainment for children's birthdays and family-focused events.</p>
-          <div class="act-actions">
-            <a class="btn btn-primary" href="/yogisangels/cba/index.html">View Act</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer shared pattern -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-cta-text">
-          Download the complete <strong>ALL-IN-ONE Acts Presentation</strong> for quick sharing with your clients.
-        </div>
-        <div class="footer-links">
-          <a class="btn" href="/yogisangels/assets/pdfs/all-acts.pdf" target="_blank" rel="nofollow">
-            Download ALL-IN-ONE PDF
-          </a>
-          <a class="btn btn-primary" href="https://wa.me/919011080000" target="_blank" rel="noopener">
-            WhatsApp: +91 90110 80000
-          </a>
-        </div>
-      </div>
-
-      <div class="footer-meta">
-        <div>
-          © Yogi's Angels™ 2005–2025 · International Entertainment &amp; Decor Pvt. Ltd.
-        </div>
-        <div class="social">
-          <a href="https://wa.me/919011080000" target="_blank" rel="noopener">
-            <img src="/yogisangels/images/icon-whatsapp.svg" alt="WhatsApp Yogi's Angels" />
-          </a>
-          <a href="https://www.facebook.com/gaurav.gondal.16/" target="_blank" rel="noopener">
-            <img src="/yogisangels/images/icon-facebook.svg" alt="Facebook Yogi's Angels" />
-          </a>
-          <a href="https://www.instagram.com/YogisAngels" target="_blank" rel="noopener">
-            <img src="/yogisangels/images/icon-instagram.svg" alt="Instagram Yogi's Angels" />
-          </a>
-        </div>
+  <!-- GRAND ACTS -->
+  <section class="section" id="grand-acts">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">Main moments</div>
+        <h2 class="section-title">Grand Acts</h2>
       </div>
     </div>
+
+    <div class="acts-grid">
+      <!-- Pyro Angels -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/pyro/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/pyro_b.jpg" alt="Pyro Angels – fire and pyrotechnic show">
+            <div class="act-badge">Fire / Pyro</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Pyro Angels</h3>
+          <div class="act-meta">Mind-blowing pyrotechnic &amp; fire show – perfect for high-energy entries and finales.</div>
+          <div class="act-tags">
+            <span>Grand reveal</span>
+            <span>Outdoor / large stage</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/pyro/">View details <span>↗</span></a>
+            <div class="act-download"><strong>MP4</strong> download on act page</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Phoenix Angels -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/pa/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/pa_b.jpg" alt="Phoenix Angels aerial act">
+            <div class="act-badge">Aerial</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Phoenix Angels</h3>
+          <div class="act-meta">Aerial rebirth &amp; rise – a powerful visual for bride &amp; groom or brand moments.</div>
+          <div class="act-tags">
+            <span>Bridal entry</span>
+            <span>Indoor &amp; outdoor</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/pa/">View details <span>↗</span></a>
+            <div class="act-download"><strong>Dropbox</strong> link on act page</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Helio Angels -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/ha/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/ha_b.jpg" alt="Helio Angels aerial halo act">
+            <div class="act-badge">Aerial</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Helio Angels</h3>
+          <div class="act-meta">Radiant aerial halos – ethereal visuals suspended above your stage or dancefloor.</div>
+          <div class="act-tags">
+            <span>Stage centrepiece</span>
+            <span>Aerial rigging</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/ha/">View details <span>↗</span></a>
+            <div class="act-download"><strong>Video</strong> &amp; download on act page</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Signature Show -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/ss/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/ss_b.jpg" alt="Signature Show – curated multi-act production">
+            <div class="act-badge">Production</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Signature Show</h3>
+          <div class="act-meta">Custom-curated multi-act production designed around your event narrative.</div>
+          <div class="act-tags">
+            <span>Full showflow</span>
+            <span>Custom casting</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/ss/">View details <span>↗</span></a>
+            <div class="act-download">Discuss with creative team</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Trio Aerial Act -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/ta/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/ta_b.jpg" alt="Trio Aerial Act">
+            <div class="act-badge">Aerial</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Trio Aerial Act</h3>
+          <div class="act-meta">Three-artist aerial routine for high-impact musical highlights.</div>
+          <div class="act-tags">
+            <span>Sangeet highlight</span>
+            <span>Musical cues</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/ta/">View details <span>↗</span></a>
+            <div class="act-download"><strong>MP4</strong> &amp; Dropbox on act page</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Cluster Helio Angel -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/cha/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/cha_b.jpg" alt="Cluster Helio Angel act">
+            <div class="act-badge">Grand aerial</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Cluster Helio Angel</h3>
+          <div class="act-meta">Multiple Helio Angels in one frame – ideal for stadiums and large ballrooms.</div>
+          <div class="act-tags">
+            <span>Large format</span>
+            <span>Multiple artists</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/cha/">View details <span>↗</span></a>
+            <div class="act-download">Dropbox on act page</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Trio Helio Angels -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/tha/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/tha_b.jpg" alt="Trio Helio Angels">
+            <div class="act-badge">Aerial</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Trio Helio Angels</h3>
+          <div class="act-meta">Expanded Helio choreography with three angels in synchronised routines.</div>
+          <div class="act-tags">
+            <span>Stage opener</span>
+            <span>High-end weddings</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/tha/">View details <span>↗</span></a>
+            <div class="act-download">Video &amp; Dropbox on act page</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- STAGE ACTS -->
+  <section class="section" id="stage-acts">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">Stage &amp; bar</div>
+        <h2 class="section-title">Stage Acts</h2>
+      </div>
+    </div>
+    <div class="acts-grid">
+      <!-- Laser Angels -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/laa/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/laa_b.jpg" alt="Laser Angels act">
+            <div class="act-badge">Laser</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Laser Angels</h3>
+          <div class="act-meta">High-energy laser and light choreography for stages and DJ sets.</div>
+          <div class="act-tags">
+            <span>DJ integration</span>
+            <span>Night events</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/laa/">View details <span>↗</span></a>
+            <div class="act-download">Dropbox on act page</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Quick Angels -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/qa/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/qa_b.jpg" alt="Quick Angels">
+            <div class="act-badge">Stage</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Quick Angels</h3>
+          <div class="act-meta">Short, high-impact stage sets – perfect between speeches and awards.</div>
+          <div class="act-tags">
+            <span>Corporate galas</span>
+            <span>Awards breaks</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/qa/">View details <span>↗</span></a>
+            <div class="act-download">Video + Dropbox</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Fusion Angels -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/fa/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/fa_b.jpg" alt="Fusion Angels">
+            <div class="act-badge">Hybrid</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Fusion Angels</h3>
+          <div class="act-meta">Hybrid dance + aerial visuals blending multiple disciplines.</div>
+          <div class="act-tags">
+            <span>Corporate</span>
+            <span>TV &amp; live</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/fa/">View details <span>↗</span></a>
+            <div class="act-download">Dropbox on act page</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Acro Angels -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/aa/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/aa_b.jpg" alt="Acro Angels">
+            <div class="act-badge">Acrobatics</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Acro Angels</h3>
+          <div class="act-meta">High-level acrobatics and balances – strong visual statements.</div>
+          <div class="act-tags">
+            <span>Stage feature</span>
+            <span>Indoor</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/aa/">View details <span>↗</span></a>
+            <div class="act-download">Video + Dropbox</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ultra Violet Angels -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/ua/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/ua_b.jpg" alt="Ultra Violet Angels">
+            <div class="act-badge">UV / LED</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Ultra Violet Angels</h3>
+          <div class="act-meta">UV and LED visuals for darkened stages and after-parties.</div>
+          <div class="act-tags">
+            <span>After-party</span>
+            <span>Clubs &amp; sangeet</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/ua/">View details <span>↗</span></a>
+            <div class="act-download">MP4 + Dropbox</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Fire Angels -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/fia/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/fia_b.jpg" alt="Fire Angels">
+            <div class="act-badge">Fire</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Fire Angels</h3>
+          <div class="act-meta">Fire dance, props and choreographed flames for outdoor venues.</div>
+          <div class="act-tags">
+            <span>Outdoor</span>
+            <span>Safety managed</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/fia/">View details <span>↗</span></a>
+            <div class="act-download">Dropbox link</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Solo Aerial Act -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/saaa/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/saa_b.jpg" alt="Solo Aerial Act">
+            <div class="act-badge">Aerial</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Solo Aerial Act</h3>
+          <div class="act-meta">Elegant solo aerial for intros, couple moments or luxury dinners.</div>
+          <div class="act-tags">
+            <span>Intimate events</span>
+            <span>Aerial rigging</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/saaa/">View details <span>↗</span></a>
+            <div class="act-download">Video on act page</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Russian Can Can Dancers -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/rccd/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/rccd_b.jpg" alt="Russian Can Can Dancers">
+            <div class="act-badge">Dance</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Russian Can Can Dancers</h3>
+          <div class="act-meta">High-energy dance troupe for grand celebrations and gala stages.</div>
+          <div class="act-tags">
+            <span>Gala stages</span>
+            <span>Corporate &amp; wedding</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/rccd/">View details <span>↗</span></a>
+            <div class="act-download">Dropbox on act page</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- BAR ACTS -->
+  <section class="section" id="bar-acts">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">Service &amp; spectacle</div>
+        <h2 class="section-title">Bar Acts</h2>
+      </div>
+    </div>
+    <div class="acts-grid">
+      <!-- Swarovski Champagne Chandelier Bar Act -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/cb/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/scb_b.jpg" alt="Swarovski Champagne Chandelier Bar Act">
+            <div class="act-badge">Aerial bar</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Swarovski Champagne Chandelier</h3>
+          <div class="act-meta">Aerial champagne service from a Swarovski crystal chandelier.</div>
+          <div class="act-tags">
+            <span>Bar feature</span>
+            <span>Luxury weddings</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/cb/">View details <span>↗</span></a>
+            <div class="act-download">MP4 + Dropbox</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Martini Bar -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/mb/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/mb_b.jpg" alt="Martini Bar Act">
+            <div class="act-badge">Bar act</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Martini Bar</h3>
+          <div class="act-meta">Iconic martini glass aerial bar – perfect for receptions &amp; cocktails.</div>
+          <div class="act-tags">
+            <span>Reception</span>
+            <span>Cocktail hour</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/mb/">View details <span>↗</span></a>
+            <div class="act-download">Video + Dropbox</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Champagne Lady -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/cl/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/cl_b.jpg" alt="Champagne Lady act">
+            <div class="act-badge">Walkabout bar</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Champagne Lady</h3>
+          <div class="act-meta">Walkabout champagne service with built-in flute display.</div>
+          <div class="act-tags">
+            <span>Welcome drinks</span>
+            <span>Photo-friendly</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/cl/">View details <span>↗</span></a>
+            <div class="act-download">Dropbox on act page</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Dancing Tables -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/dth/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/dth_b.jpg" alt="Dancing Tables">
+            <div class="act-badge">Interactive bar</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Dancing Tables</h3>
+          <div class="act-meta">Living tables that move with the party – ideal for welcome zones.</div>
+          <div class="act-tags">
+            <span>Interactive</span>
+            <span>Receptions</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/dth/">View details <span>↗</span></a>
+            <div class="act-download">Video + Dropbox</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Grand Champagne Presentation -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/gcp/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/gcp_b.jpg" alt="Grand Champagne Presentation">
+            <div class="act-badge">Presentation</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Grand Champagne Presentation</h3>
+          <div class="act-meta">A curated moment for champagne pops, toast or celebratory reveal.</div>
+          <div class="act-tags">
+            <span>Toast moment</span>
+            <span>Photo op</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/gcp/">View details <span>↗</span></a>
+            <div class="act-download">Details on act page</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE & WATER -->
+  <section class="section" id="interactive-acts">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">Interactive &amp; water</div>
+        <h2 class="section-title">Interactive &amp; Water Acts</h2>
+      </div>
+    </div>
+    <div class="acts-grid">
+      <!-- Shooting Star Angels -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/ssa/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/ssa_b.jpg" alt="Shooting Star Angels">
+            <div class="act-badge">Interactive</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Shooting Star Angels</h3>
+          <div class="act-meta">Immersive glow performances weaving through your guests.</div>
+          <div class="act-tags">
+            <span>Walkabout</span>
+            <span>Night events</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/ssa/">View details <span>↗</span></a>
+            <div class="act-download">Dropbox on act page</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Glow Paint Party -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/gpp/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/gpp_b.jpg" alt="Glow Paint Party">
+            <div class="act-badge">Party concept</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Glow Paint Party</h3>
+          <div class="act-meta">UV paint, neon visuals and interactive fun for late-night parties.</div>
+          <div class="act-tags">
+            <span>After-party</span>
+            <span>Resort &amp; clubs</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/gpp/">View details <span>↗</span></a>
+            <div class="act-download">Video + Dropbox</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Rio Carnival -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/rc/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/rc_b.jpg" alt="Rio Carnival dancers">
+            <div class="act-badge">Dance</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Rio Carnival</h3>
+          <div class="act-meta">Brazilian carnival costumes, drums and dancers for parades &amp; stages.</div>
+          <div class="act-tags">
+            <span>Parades</span>
+            <span>Street &amp; resort</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/rc/">View details <span>↗</span></a>
+            <div class="act-download">Dropbox link</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Red Carpet Lady -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/rcl/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/rcl_b.jpg" alt="Red Carpet Lady">
+            <div class="act-badge">Entrance</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Red Carpet Lady</h3>
+          <div class="act-meta">Living red carpet installation for guest arrivals and photo ops.</div>
+          <div class="act-tags">
+            <span>Guest arrivals</span>
+            <span>Photo backdrop</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/rcl/">View details <span>↗</span></a>
+            <div class="act-download">Video on act page</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Human Fountain -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/hf/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/hf_b.jpg" alt="Human Fountain">
+            <div class="act-badge">Installation</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Human Fountain</h3>
+          <div class="act-meta">Mesmerising living fountain installation – perfect for resort venues.</div>
+          <div class="act-tags">
+            <span>Resorts</span>
+            <span>Poolside</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/hf/">View details <span>↗</span></a>
+            <div class="act-download">Dropbox link</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Flower Girl -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/fg/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/fg_b.jpg" alt="Flower Girl installation">
+            <div class="act-badge">Walkabout</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Flower Girl</h3>
+          <div class="act-meta">Whimsical living flower installation greeting guests and posing for photos.</div>
+          <div class="act-tags">
+            <span>Welcome zone</span>
+            <span>Photo-friendly</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/fg/">View details <span>↗</span></a>
+            <div class="act-download">Dropbox</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Stilt Walkers -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/sw/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/sw_b.jpg" alt="Stilt Walkers">
+            <div class="act-badge">Walkabout</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Stilt Walkers</h3>
+          <div class="act-meta">Tall, high-visibility characters for entrances, parades and photo ops.</div>
+          <div class="act-tags">
+            <span>Parades</span>
+            <span>Outdoor &amp; indoor</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/sw/">View details <span>↗</span></a>
+            <div class="act-download">Video + Dropbox</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Human Statue -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/hs/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/hs_b.jpg" alt="Human Statue">
+            <div class="act-badge">Installation</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Human Statue</h3>
+          <div class="act-meta">Living statue that surprises guests when it comes to life.</div>
+          <div class="act-tags">
+            <span>Lobby &amp; foyer</span>
+            <span>Surprise element</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/hs/">View details <span>↗</span></a>
+            <div class="act-download">Details on act page</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Mystrees -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/mystrees/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/mystrees_b.jpg" alt="Mystrees fantasy trees">
+            <div class="act-badge">Fantasy</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Mystrees</h3>
+          <div class="act-meta">Fantasy living trees transforming gardens and lawns.</div>
+          <div class="act-tags">
+            <span>Garden events</span>
+            <span>Fantasy theme</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/mystrees/">View details <span>↗</span></a>
+            <div class="act-download">Video &amp; Dropbox</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Soap Bubble Show -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/sbs/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/sbs_b.jpg" alt="Soap Bubble Show">
+            <div class="act-badge">Family</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Soap Bubble Show</h3>
+          <div class="act-meta">Magical bubble show for children, families and brand activations.</div>
+          <div class="act-tags">
+            <span>Families</span>
+            <span>Malls &amp; festivals</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/sbs/">View details <span>↗</span></a>
+            <div class="act-download">Dropbox</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Swimming Pool Show -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/sps/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/sps_b.jpg" alt="Swimming Pool Show">
+            <div class="act-badge">Water show</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">Swimming Pool Show</h3>
+          <div class="act-meta">Floating &amp; in-water choreography for resorts and pool decks.</div>
+          <div class="act-tags">
+            <span>Resort events</span>
+            <span>Night pool show</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/sps/">View details <span>↗</span></a>
+            <div class="act-download">Video + Dropbox</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- LED Bubble Gymnasts -->
+      <article class="act-card hidden">
+        <a href="/yogisangels/lbg/">
+          <div class="act-media">
+            <img src="/yogisangels/images/mp/lbg_b.jpg" alt="LED Bubble Gymnasts">
+            <div class="act-badge">Water / LED</div>
+          </div>
+        </a>
+        <div class="act-body">
+          <h3 class="act-name">LED Bubble Gymnasts</h3>
+          <div class="act-meta">Gymnasts inside LED bubbles creating magical pool visuals.</div>
+          <div class="act-tags">
+            <span>Luxury resorts</span>
+            <span>Destination weddings</span>
+          </div>
+          <div class="act-footer">
+            <a class="act-link" href="/yogisangels/lbg/">View details <span>↗</span></a>
+            <div class="act-download">Dropbox link</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="load-more-hint">
+    Scroll to reveal more acts. All cards are fully crawlable HTML, so Google and GPT-style models will see the entire catalogue.
+  </div>
+
+  <!-- FOOTER MINI -->
+  <footer class="footer-mini">
+    <p>
+      Need to show everything to a client in one file? Download the
+      <a href="/yogisangels/assets/pdfs/all-acts.pdf">ALL-IN-ONE Acts presentation (PDF)</a>
+      or message us on <a href="https://wa.me/919011080000" target="_blank" rel="noopener">WhatsApp</a>.
+    </p>
+    <p style="margin-top:0.4rem;">
+      © 2005–2025 Yogi's Angels International Entertainment. All rights reserved.
+    </p>
   </footer>
 
 </div>
