@@ -12,7 +12,7 @@
   <!-- Canonical -->
   <link rel="canonical" href="https://www.yogisangels.com/" />
 
-  <!-- Favicon -->
+  <!-- Favicon (adjust if needed) -->
   <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 
   <!-- Open Graph / Social -->
@@ -28,24 +28,24 @@
   <meta name="twitter:description" content="International entertainment acts for luxury weddings and corporate events in India and overseas." />
   <meta name="twitter:image" content="https://www.yogisangels.com/images/hr.jpg" />
 
-  <!-- Simple modern font -->
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --ya-bg: #041d23;
-      --ya-bg-alt: #052f37;
-      --ya-accent: #a77c3f;
-      --ya-accent-soft: #f3e1c0;
-      --ya-text: #f7f9fa;
-      --ya-muted: #a0b4b9;
-      --ya-danger: #d33f49;
-      --ya-radius-lg: 18px;
-      --ya-radius-md: 12px;
-      --ya-shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.45);
-      --ya-max-width: 1200px;
+      --ya-bg: #050608;
+      --ya-bg-soft: #0b0f15;
+      --ya-gold: #d9a657;
+      --ya-gold-soft: #f4e0b5;
+      --ya-gold-deep: #8b622e;
+      --ya-text: #f9fafb;
+      --ya-muted: #a4adb7;
+      --ya-radius-lg: 20px;
+      --ya-radius-md: 14px;
+      --ya-shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.8);
+      --ya-max-width: 1180px;
     }
 
     * {
@@ -60,7 +60,7 @@
 
     body {
       font-family: "PT Sans Narrow", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #09313c 0, #020b0f 55%, #020607 100%);
+      background: radial-gradient(circle at top, #15181f 0, #050608 50%, #020305 100%);
       color: var(--ya-text);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
@@ -76,215 +76,241 @@
       display: block;
     }
 
-    /* ======= Layout helpers ======= */
+    video {
+      display: block;
+    }
+
     .ya-shell {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      background: radial-gradient(circle at top, #161922 0, #050608 45%, #000000 100%);
     }
 
     .ya-main {
       flex: 1;
-      padding-top: 80px; /* header height */
     }
 
     .ya-container {
       width: 92%;
       max-width: var(--ya-max-width);
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
-    /* ======= Header / Nav ======= */
-    .ya-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 999;
-      background: linear-gradient(90deg, #050f14 0%, #041d23 40%, #050f14 100%);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(10px);
-    }
+    /* ======= HERO BACKGROUND VIDEO ======= */
 
-    .ya-header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 0;
-    }
-
-    .ya-logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .ya-logo-mark {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 20%, #ffe5a0 0, #e0a44c 35%, #5c3310 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 22px;
-      color: #200e03;
-      box-shadow: 0 0 0 2px rgba(255, 215, 160, 0.6), 0 10px 25px rgba(0, 0, 0, 0.6);
-    }
-
-    .ya-logo-text {
+    .ya-hero-wrap {
+      position: relative;
+      min-height: 90vh;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      padding-bottom: 40px;
+      overflow: hidden;
     }
 
-    .ya-logo-text span:first-child {
-      letter-spacing: 0.08em;
-      font-size: 18px;
-      font-weight: 700;
+    .ya-hero-video-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ya-hero-video-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(0, 0, 0, 0.05) 0, rgba(0, 0, 0, 0.65) 40%, #050608 90%);
+      pointer-events: none;
+    }
+
+    .ya-hero-video-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.1) contrast(1.05);
+    }
+
+    /* ======= HEADER (Centered Logo + Nav) ======= */
+
+    .ya-header {
+      position: relative;
+      z-index: 3;
+      padding-top: 24px;
+    }
+
+    .ya-logo-block {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .ya-logo-img {
+      margin: 0 auto 8px;
+      width: 120px;
+      height: auto;
+      border-radius: 999px;
+      box-shadow: 0 0 0 2px rgba(217, 166, 87, 0.7),
+                  0 18px 45px rgba(0, 0, 0, 0.9);
+    }
+
+    .ya-logo-heading {
+      font-size: 22px;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
+      color: var(--ya-gold-soft);
+      margin-bottom: 2px;
     }
 
-    .ya-logo-text span:last-child {
+    .ya-logo-subtitle {
       font-size: 13px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--ya-muted);
     }
 
     .ya-nav {
+      margin-top: 18px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(3, 4, 7, 0.9), rgba(10, 10, 12, 0.96));
+      border: 1px solid rgba(217, 166, 87, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 26px;
-      font-size: 16px;
+      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.22em;
     }
 
     .ya-nav a {
       position: relative;
       color: var(--ya-muted);
-      font-weight: 600;
+      padding-bottom: 2px;
     }
 
     .ya-nav a::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -6px;
+      bottom: -5px;
       width: 0;
       height: 2px;
-      background: var(--ya-accent);
-      transition: width 0.2s ease-out;
+      background: var(--ya-gold);
+      transition: width 0.18s ease-out;
     }
 
     .ya-nav a:hover {
       color: #ffffff;
     }
 
-    .ya-nav a:hover::after {
-      width: 100%;
-    }
-
-    .ya-nav a.ya-nav-active {
-      color: #ffffff;
-    }
-
+    .ya-nav a:hover::after,
     .ya-nav a.ya-nav-active::after {
       width: 100%;
     }
 
-    .ya-cta-btn {
-      padding: 7px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      background: rgba(167, 124, 63, 0.12);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
+    .ya-nav a.ya-nav-active {
+      color: var(--ya-gold-soft);
     }
 
-    .ya-cta-btn span:nth-child(2) {
-      font-size: 18px;
+    .ya-nav .ya-nav-cta {
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(217, 166, 87, 0.6);
+      background: radial-gradient(circle at top, rgba(248, 230, 189, 0.2), rgba(37, 27, 9, 0.7));
+      color: var(--ya-gold-soft);
+    }
+
+    /* Mobile nav */
+
+    .ya-nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
     .ya-menu-toggle {
       display: none;
       background: none;
-      border: none;
-      color: #fff;
-      font-size: 26px;
-      padding: 4px 0 4px 8px;
+      border: 1px solid rgba(217, 166, 87, 0.6);
+      border-radius: 999px;
+      padding: 4px 10px;
+      color: var(--ya-gold-soft);
+      font-size: 18px;
       cursor: pointer;
     }
 
-    /* Mobile nav */
-    @media (max-width: 768px) {
-      .ya-header-inner {
-        padding: 10px 0;
-      }
-
+    @media (max-width: 820px) {
       .ya-nav {
         display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        flex-direction: column;
-        align-items: flex-start;
-        background: #04141a;
-        padding: 10px 16px 14px;
-        width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        flex-wrap: wrap;
+        margin-top: 10px;
       }
 
       .ya-nav.show {
         display: flex;
       }
 
-      .ya-nav a {
-        padding: 6px 0;
-      }
-
       .ya-menu-toggle {
         display: inline-flex;
       }
+
+      .ya-nav-row {
+        flex-direction: column;
+      }
     }
 
-    /* ======= Hero ======= */
-    .ya-hero {
-      padding: 80px 0 40px;
+    /* ======= HERO CONTENT ======= */
+
+    .ya-hero-inner {
+      position: relative;
+      z-index: 2;
+      padding: 40px 0 20px;
     }
 
     .ya-hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
-      gap: 40px;
+      grid-template-columns: minmax(0, 3.2fr) minmax(0, 2.3fr);
+      gap: 36px;
       align-items: center;
+    }
+
+    @media (max-width: 960px) {
+      .ya-hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+      }
     }
 
     .ya-hero-kicker {
       font-size: 13px;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--ya-accent-soft);
-      margin-bottom: 8px;
+      color: var(--ya-gold-soft);
+      margin-bottom: 10px;
     }
 
     .ya-hero-title {
       font-size: 40px;
       line-height: 1.15;
       margin-bottom: 12px;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     }
 
     .ya-hero-title span {
-      color: var(--ya-accent);
+      color: var(--ya-gold);
     }
 
     .ya-hero-sub {
       font-size: 18px;
-      max-width: 520px;
+      max-width: 540px;
       color: var(--ya-muted);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .ya-hero-tags {
@@ -295,10 +321,11 @@
     }
 
     .ya-tag {
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      font-size: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: linear-gradient(135deg, rgba(7, 10, 14, 0.9), rgba(18, 18, 19, 0.95));
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: var(--ya-muted);
@@ -309,21 +336,22 @@
       flex-wrap: wrap;
       gap: 12px;
       align-items: center;
+      margin-bottom: 10px;
     }
 
     .ya-btn-primary {
-      background: linear-gradient(135deg, #f0c878 0%, #a77c3f 40%, #5a3611 100%);
-      color: #1a1106;
+      background: linear-gradient(135deg, #f7e1b2 0%, #d9a657 40%, #8b622e 100%);
+      color: #1c1407;
       border-radius: 999px;
-      padding: 9px 22px;
+      padding: 10px 22px;
       font-size: 15px;
       font-weight: 700;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
       border: none;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       box-shadow: var(--ya-shadow-soft);
     }
 
@@ -334,7 +362,8 @@
     .ya-btn-ghost {
       padding: 9px 18px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(7, 9, 13, 0.8);
       font-size: 14px;
       display: inline-flex;
       align-items: center;
@@ -343,26 +372,26 @@
     }
 
     .ya-hero-note {
-      margin-top: 12px;
+      margin-top: 8px;
       font-size: 12px;
       color: var(--ya-muted);
+      max-width: 520px;
     }
 
-    .ya-hero-media {
-      position: relative;
-    }
+    /* Right hero card */
 
     .ya-hero-card {
-      background: radial-gradient(circle at top left, #12313a 0, #050f14 55%, #020608 100%);
+      background: radial-gradient(circle at top left, #1c1f2a 0, #050608 55%, #020203 100%);
       border-radius: var(--ya-radius-lg);
       padding: 16px 16px 14px;
       box-shadow: var(--ya-shadow-soft);
+      border: 1px solid rgba(217, 166, 87, 0.6);
       position: relative;
       overflow: hidden;
     }
 
     .ya-hero-card h3 {
-      font-size: 16px;
+      font-size: 17px;
       margin-bottom: 4px;
     }
 
@@ -372,12 +401,12 @@
       margin-bottom: 10px;
     }
 
-    .ya-hero-video-wrap {
+    .ya-hero-video-window {
       border-radius: 14px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.15);
       margin-bottom: 8px;
+      background: #000;
     }
 
     .ya-chip-row {
@@ -397,47 +426,28 @@
 
     .ya-hero-badge {
       position: absolute;
-      top: 8px;
-      right: 18px;
-      padding: 4px 10px;
+      top: 10px;
+      right: 16px;
+      padding: 4px 11px;
       border-radius: 999px;
-      background: rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 215, 160, 0.7);
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(247, 225, 178, 0.8);
       font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-    }
-
-    .ya-hero-ribbon {
-      position: absolute;
-      bottom: -8px;
-      right: 0;
-      padding: 6px 16px 10px;
-      background: linear-gradient(90deg, rgba(15, 79, 94, 0.9), rgba(7, 36, 43, 0.9));
-      font-size: 11px;
-      text-transform: uppercase;
       letter-spacing: 0.16em;
-      border-radius: 14px 0 0 0;
+      text-transform: uppercase;
     }
 
-    @media (max-width: 900px) {
-      .ya-hero-grid {
-        grid-template-columns: minmax(0, 1fr);
-        padding-top: 8px;
-      }
+    /* ======= Sections & Grids ======= */
 
-      .ya-hero {
-        padding: 70px 0 30px;
-      }
-    }
-
-    /* ======= Sections ======= */
     .ya-section {
-      padding: 18px 0 24px;
+      padding: 16px 0 24px;
+      position: relative;
+      z-index: 2;
     }
 
     .ya-section-header {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: baseline;
       gap: 16px;
@@ -446,13 +456,14 @@
 
     .ya-section-title {
       font-size: 20px;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      letter-spacing: 0.22em;
     }
 
     .ya-section-sub {
       font-size: 13px;
       color: var(--ya-muted);
+      max-width: 420px;
     }
 
     .ya-pill-row {
@@ -468,10 +479,9 @@
       padding: 3px 10px;
       border-radius: 999px;
       border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(0, 0, 0, 0.25);
+      background: rgba(7, 9, 13, 0.9);
     }
 
-    /* ======= Cards grid ======= */
     .ya-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -490,27 +500,27 @@
       }
     }
 
-    @media (max-width: 540px) {
+    @media (max-width: 520px) {
       .ya-grid {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
     .ya-card {
-      background: radial-gradient(circle at top, #163c47 0, #050f14 55%, #020608 100%);
+      background: radial-gradient(circle at top, #1c1f2a 0, #050608 55%, #020203 100%);
       border-radius: var(--ya-radius-md);
       padding: 8px 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
       cursor: pointer;
       transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
     }
 
     .ya-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
-      border-color: rgba(167, 124, 63, 0.7);
+      box-shadow: var(--ya-shadow-soft);
+      border-color: rgba(217, 166, 87, 0.7);
     }
 
     .ya-card-img {
@@ -524,7 +534,7 @@
     .ya-card-title {
       font-size: 14px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       margin-bottom: 4px;
     }
 
@@ -538,29 +548,30 @@
 
     .ya-card-tag {
       font-size: 10px;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--ya-accent-soft);
+      color: var(--ya-gold-soft);
     }
 
-    /* ======= CTA + Footer ======= */
+    /* ======= CTA STRIP & BLOG PREVIEW ======= */
+
     .ya-cta-strip {
-      margin: 30px auto 12px;
-      padding: 14px 16px;
+      margin: 30px auto 10px;
+      padding: 16px 18px;
       border-radius: var(--ya-radius-lg);
-      background: linear-gradient(135deg, rgba(10, 50, 60, 0.95), rgba(2, 12, 18, 0.98));
+      background: radial-gradient(circle at top, #1a212f 0, #050608 65%);
+      border: 1px solid rgba(217, 166, 87, 0.5);
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 14px;
       align-items: center;
       justify-content: space-between;
-      border: 1px solid rgba(255, 255, 255, 0.14);
       box-shadow: var(--ya-shadow-soft);
     }
 
     .ya-cta-strip h3 {
       font-size: 18px;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .ya-cta-strip p {
@@ -581,10 +592,10 @@
       padding: 8px 16px;
       border-radius: 999px;
       background: #25d366;
-      color: #0b1b0b;
+      color: #07120a;
       font-size: 14px;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
@@ -592,362 +603,673 @@
       border-radius: 999px;
       padding: 8px 14px;
       font-size: 13px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: var(--ya-muted);
+      background: rgba(5, 7, 10, 0.9);
+    }
+
+    /* Blog preview grid */
+
+    .ya-blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .ya-blog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .ya-blog-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .ya-blog-card {
+      border-radius: var(--ya-radius-md);
+      background: radial-gradient(circle at top, #191d26 0, #050608 60%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 10px 12px 12px;
+      cursor: pointer;
+      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
+    }
+
+    .ya-blog-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(217, 166, 87, 0.7);
+      box-shadow: var(--ya-shadow-soft);
+    }
+
+    .ya-blog-tag {
+      font-size: 11px;
+      color: var(--ya-gold-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 4px;
+    }
+
+    .ya-blog-title {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .ya-blog-meta {
+      font-size: 11px;
       color: var(--ya-muted);
     }
+
+    /* ======= FOOTER ======= */
 
     footer {
       border-top: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 12px 0 20px;
-      font-size: 12px;
-      color: var(--ya-muted);
+      padding: 18px 0 22px;
+      background: radial-gradient(circle at top, #11141d 0, #020305 60%);
     }
 
-    .ya-footer-row {
+    .ya-footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr) minmax(0, 1.5fr);
+      gap: 18px;
+      font-size: 13px;
+      color: var(--ya-muted);
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .ya-footer-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .ya-footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .ya-footer-title {
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: var(--ya-gold-soft);
+    }
+
+    .ya-footer-logo-small {
       display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
       align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .ya-footer-logo-small img {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      box-shadow: 0 0 0 1px rgba(217, 166, 87, 0.7),
+                  0 10px 25px rgba(0, 0, 0, 0.8);
+    }
+
+    .ya-footer-logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ya-footer-logo-text span:first-child {
+      font-size: 14px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .ya-footer-logo-text span:last-child {
+      font-size: 12px;
+      color: var(--ya-muted);
+      letter-spacing: 0.08em;
+    }
+
+    .ya-footer-links a {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .ya-footer-links a:hover {
+      color: var(--ya-gold-soft);
     }
 
     .ya-footer-social {
       display: flex;
-      gap: 10px;
-      align-items: center;
+      flex-direction: column;
+      gap: 6px;
     }
 
     .ya-footer-social a {
       font-size: 13px;
+    }
+
+    .ya-footer-bottom {
+      font-size: 11px;
+      color: var(--ya-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .ya-footer-download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(217, 166, 87, 0.8);
+      background: linear-gradient(135deg, #f7e1b2 0%, #d9a657 40%, #8b622e 100%);
+      color: #1f1406;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      box-shadow: var(--ya-shadow-soft);
+      margin-top: 6px;
+    }
+
+    .ya-footer-download-btn span:last-child {
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
 <div class="ya-shell">
-  <!-- ======= Header ======= -->
-  <header class="ya-header">
-    <div class="ya-container ya-header-inner">
-      <div class="ya-logo-wrap">
-        <div class="ya-logo-mark">YA</div>
-        <div class="ya-logo-text">
-          <span>YOGI'S ANGELS</span>
-          <span>International Entertainment</span>
+
+  <!-- ======= HERO (video background + header + hero content) ======= -->
+  <section class="ya-hero-wrap">
+    <!-- Background video -->
+    <div class="ya-hero-video-bg">
+      <video autoplay muted loop playsinline poster="images/hr.jpg">
+        <source src="assets/videos/all-in-one-angels-2025-compressed.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Header: logo + nav -->
+    <header class="ya-header">
+      <div class="ya-container">
+        <div class="ya-logo-block">
+          <img src="images/logo.jpg" alt="Yogi's Angels Logo" class="ya-logo-img" />
+          <div class="ya-logo-heading">YOGI'S ANGELS</div>
+          <div class="ya-logo-subtitle">INTERNATIONAL ENTERTAINMENT</div>
+        </div>
+
+        <div class="ya-nav-row">
+          <nav class="ya-nav" id="ya-nav">
+            <a href="index.html" class="ya-nav-active">Home</a>
+            <a href="aboutus/index.html">About</a>
+            <a href="#grand-acts">Acts</a>
+            <a href="blog/index.html">Blog</a>
+            <a href="contacts/index.html">Contact</a>
+            <a href="https://wa.me/919011080000" target="_blank" rel="nofollow" class="ya-nav-cta">WhatsApp</a>
+          </nav>
+          <button class="ya-menu-toggle" type="button" onclick="toggleMenu()">MENU ☰</button>
         </div>
       </div>
+    </header>
 
-      <button class="ya-menu-toggle" aria-label="Toggle navigation" onclick="toggleMenu()">☰</button>
-
-      <nav class="ya-nav" id="ya-nav">
-        <a href="index.html" class="ya-nav-active">Home</a>
-        <a href="aboutus/index.html">About Us</a>
-        <a href="contacts/index.html">Contact</a>
-        <a href="assets/pdfs/all-acts.pdf" target="_blank" rel="nofollow">All Acts PDF</a>
-        <a href="https://wa.me/919011080000" target="_blank" rel="nofollow" class="ya-cta-btn">
-          <span>WhatsApp</span>
-          <span>→</span>
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ======= Main ======= -->
-  <main class="ya-main">
-    <section class="ya-hero">
+    <!-- Hero content -->
+    <div class="ya-hero-inner">
       <div class="ya-container ya-hero-grid">
         <div>
           <div class="ya-hero-kicker">The original source of</div>
           <h1 class="ya-hero-title">
             <span>Unique international entertainment</span><br />
-            for luxury events in India & beyond.
+            for luxury events in India &amp; worldwide.
           </h1>
           <p class="ya-hero-sub">
-            Curated aerial, fire, LED, water and interactive acts from around the world —
-            designed for high-impact weddings, corporate galas, launches and VIP celebrations.
+            Curated aerial, fire, LED, water and interactive acts from across the globe —
+            created for high-impact weddings, corporate galas, launches and VIP celebrations.
           </p>
 
           <div class="ya-hero-tags">
             <span class="ya-tag">Aerial &amp; Fire Angels</span>
-            <span class="ya-tag">Water &amp; Pool Acts</span>
-            <span class="ya-tag">Interactive &amp; Bar Acts</span>
+            <span class="ya-tag">Water &amp; Pool Shows</span>
+            <span class="ya-tag">Bar &amp; Champagne Acts</span>
+            <span class="ya-tag">Interactive Experiences</span>
             <span class="ya-tag">India &amp; Overseas</span>
           </div>
 
           <div class="ya-hero-actions">
-            <a href="assets/pdfs/all-acts.pdf" class="ya-btn-primary" target="_blank" rel="nofollow">
-              <span>Download all acts PDF</span>
+            <a href="#grand-acts" class="ya-btn-primary">
+              <span>Explore signature acts</span>
               <span>↓</span>
             </a>
-            <a href="#grand-acts" class="ya-btn-ghost">
-              <span>View signature acts</span>
+            <a href="contacts/index.html" class="ya-btn-ghost">
+              <span>Plan your showflow</span>
             </a>
           </div>
 
           <p class="ya-hero-note">
-            Direct bookings • Customised concepts • International performers •
-            Managed end-to-end with full technical &amp; safety support.
+            Direct artist management • Custom concepts • Technical &amp; safety handled end-to-end •
+            Specialists in destination weddings and high-profile corporate events.
           </p>
         </div>
 
-        <div class="ya-hero-media">
-          <div class="ya-hero-card">
-            <div class="ya-hero-badge">Showreel</div>
-            <h3>All-In-One Angels 2025</h3>
-            <p>Your quick overview of the Yogi’s Angels universe — curated highlights of aerial, fire, LED and bar acts.</p>
-
-            <div class="ya-hero-video-wrap">
-              <video controls preload="metadata" width="100%">
-                <source src="assets/videos/all-in-one-angels-2025-compressed.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-
-            <div class="ya-chip-row">
-              <span class="ya-chip">Medium resolution</span>
-              <span class="ya-chip">Optimised for online viewing</span>
-            </div>
-
-            <div class="ya-hero-ribbon">
-              Bridal entries • Corporate reveals • Sangeet &amp; receptions
-            </div>
+        <aside class="ya-hero-card">
+          <div class="ya-hero-badge">Showreel</div>
+          <h3>All-In-One Angels 2025</h3>
+          <p>A quick overview of the Yogi’s Angels universe — highlight moments from aerial, fire, LED and bar acts.</p>
+          <div class="ya-hero-video-window">
+            <video controls preload="metadata" width="100%">
+              <source src="assets/videos/all-in-one-angels-2025-compressed.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
-        </div>
+          <div class="ya-chip-row">
+            <span class="ya-chip">Medium resolution</span>
+            <span class="ya-chip">Optimised for online sharing</span>
+            <span class="ya-chip">Suitable for client previews</span>
+          </div>
+        </aside>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ======= Grand Acts ======= -->
-    <section class="ya-section" id="grand-acts">
-      <div class="ya-container">
-        <div class="ya-section-header">
-          <h2 class="ya-section-title">Grand Acts</h2>
-          <p class="ya-section-sub">
-            High-impact signature pieces for main moments — entries, reveals, stage shows.
+  <!-- ======= Grand Acts ======= -->
+  <section class="ya-section" id="grand-acts">
+    <div class="ya-container">
+      <div class="ya-section-header">
+        <h2 class="ya-section-title">Grand Acts</h2>
+        <p class="ya-section-sub">
+          High-impact signature pieces for main moments — bridal entries, big reveals, sangeet highlights and brand launches.
+        </p>
+      </div>
+
+      <div class="ya-pill-row">
+        <span class="ya-pill">Pyro Angels</span>
+        <span class="ya-pill">Phoenix Angels</span>
+        <span class="ya-pill">Helio Angels</span>
+        <span class="ya-pill">Signature Show</span>
+        <span class="ya-pill">Trio Aerial</span>
+        <span class="ya-pill">Helio Clusters</span>
+      </div>
+
+      <div class="ya-grid">
+        <!-- Adjust image paths if needed -->
+        <a href="pyro/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/pyro_b.jpg" alt="Pyro Angels – fire and special effects act" />
+          </div>
+          <div class="ya-card-title">Pyro Angels</div>
+          <div class="ya-card-meta">
+            <span>Fire, sparks, atmosphere</span>
+            <span class="ya-card-tag">Stage act</span>
+          </div>
+        </a>
+
+        <a href="pa/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/pa_b.jpg" alt="Phoenix Angels aerial act" />
+          </div>
+          <div class="ya-card-title">Phoenix Angels</div>
+          <div class="ya-card-meta">
+            <span>Aerial rebirth &amp; rise</span>
+            <span class="ya-card-tag">Aerial</span>
+          </div>
+        </a>
+
+        <a href="ha/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/ha_b.jpg" alt="Helio Angels aerial performance" />
+          </div>
+          <div class="ya-card-title">Helio Angels</div>
+          <div class="ya-card-meta">
+            <span>Radiant aerial halos</span>
+            <span class="ya-card-tag">Aerial</span>
+          </div>
+        </a>
+
+        <a href="ss/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/ss_b.jpg" alt="Signature Show by Yogi's Angels" />
+          </div>
+          <div class="ya-card-title">Signature Show</div>
+          <div class="ya-card-meta">
+            <span>Custom showflow &amp; cast</span>
+            <span class="ya-card-tag">Production</span>
+          </div>
+        </a>
+
+        <a href="ta/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/ta_b.jpg" alt="Trio Aerial Act" />
+          </div>
+          <div class="ya-card-title">Trio Aerial Act</div>
+          <div class="ya-card-meta">
+            <span>Three-artist aerial routine</span>
+            <span class="ya-card-tag">Aerial</span>
+          </div>
+        </a>
+
+        <a href="cha/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/cha_b.jpg" alt="Cluster Helio Angel act" />
+          </div>
+          <div class="ya-card-title">Cluster Helio Angel</div>
+          <div class="ya-card-meta">
+            <span>Multi-angel halo formation</span>
+            <span class="ya-card-tag">Grand</span>
+          </div>
+        </a>
+
+        <a href="tha/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/tha_b.jpg" alt="Trio Helio Angels act" />
+          </div>
+          <div class="ya-card-title">Trio Helio Angels</div>
+          <div class="ya-card-meta">
+            <span>Expanded Helio choreography</span>
+            <span class="ya-card-tag">Aerial</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Stage & Bar Acts (highlight) ======= -->
+  <section class="ya-section">
+    <div class="ya-container">
+      <div class="ya-section-header">
+        <h2 class="ya-section-title">Stage &amp; Bar Acts</h2>
+        <p class="ya-section-sub">
+          Visual centrepieces for stages, bars and guest circulation — designed for photographs, stories and lasting memories.
+        </p>
+      </div>
+
+      <div class="ya-grid">
+        <a href="laa/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/laa_b.jpg" alt="Laser Angels act" />
+          </div>
+          <div class="ya-card-title">Laser Angels</div>
+          <div class="ya-card-meta">
+            <span>Laser, light &amp; silhouettes</span>
+            <span class="ya-card-tag">Stage</span>
+          </div>
+        </a>
+
+        <a href="qa/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/qa_b.jpg" alt="Quick Angels act" />
+          </div>
+          <div class="ya-card-title">Quick Angels</div>
+          <div class="ya-card-meta">
+            <span>Short, high-impact sets</span>
+            <span class="ya-card-tag">Stage</span>
+          </div>
+        </a>
+
+        <a href="fa/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/fa_b.jpg" alt="Fusion Angels" />
+          </div>
+          <div class="ya-card-title">Fusion Angels</div>
+          <div class="ya-card-meta">
+            <span>Hybrid dance+aerial visuals</span>
+            <span class="ya-card-tag">Stage</span>
+          </div>
+        </a>
+
+        <a href="cb/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/scb_b.jpg" alt="Swarovski Champagne Chandelier Bar Act" />
+          </div>
+          <div class="ya-card-title">Champagne Chandelier</div>
+          <div class="ya-card-meta">
+            <span>Swarovski aerial champagne</span>
+            <span class="ya-card-tag">Bar act</span>
+          </div>
+        </a>
+
+        <a href="mb/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/mb_b.jpg" alt="Martini Bar Act" />
+          </div>
+          <div class="ya-card-title">Martini Bar</div>
+          <div class="ya-card-meta">
+            <span>Iconic martini glass aerial</span>
+            <span class="ya-card-tag">Bar act</span>
+          </div>
+        </a>
+
+        <a href="cl/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/cl_b.jpg" alt="Champagne Lady walkabout act" />
+          </div>
+          <div class="ya-card-title">Champagne Lady</div>
+          <div class="ya-card-meta">
+            <span>Walkabout champagne service</span>
+            <span class="ya-card-tag">Walkabout</span>
+          </div>
+        </a>
+
+        <a href="dth/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/dth_b.jpg" alt="Dancing Tables act" />
+          </div>
+          <div class="ya-card-title">Dancing Tables</div>
+          <div class="ya-card-meta">
+            <span>Living tables for receptions</span>
+            <span class="ya-card-tag">Interactive</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Interactive & Water Acts (short highlight section) ======= -->
+  <section class="ya-section">
+    <div class="ya-container">
+      <div class="ya-section-header">
+        <h2 class="ya-section-title">Interactive &amp; Water</h2>
+        <p class="ya-section-sub">
+          Walkabout, immersive and pool-based acts designed to transform venues into immersive worlds.
+        </p>
+      </div>
+
+      <div class="ya-grid">
+        <a href="ssa/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/ssa_b.jpg" alt="Shooting Star Angels act" />
+          </div>
+          <div class="ya-card-title">Shooting Star Angels</div>
+          <div class="ya-card-meta">
+            <span>Immersive glow performances</span>
+            <span class="ya-card-tag">Interactive</span>
+          </div>
+        </a>
+
+        <a href="gpp/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/gpp_b.jpg" alt="Glow Paint Party" />
+          </div>
+          <div class="ya-card-title">Glow Paint Party</div>
+          <div class="ya-card-meta">
+            <span>UV, paint &amp; energy</span>
+            <span class="ya-card-tag">Interactive</span>
+          </div>
+        </a>
+
+        <a href="rc/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/rc_b.jpg" alt="Rio Carnival dancers" />
+          </div>
+          <div class="ya-card-title">Rio Carnival</div>
+          <div class="ya-card-meta">
+            <span>Brazilian carnival atmosphere</span>
+            <span class="ya-card-tag">Dance</span>
+          </div>
+        </a>
+
+        <a href="sps/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/sps_b.jpg" alt="Swimming Pool Show" />
+          </div>
+          <div class="ya-card-title">Swimming Pool Show</div>
+          <div class="ya-card-meta">
+            <span>Floating &amp; water-based visuals</span>
+            <span class="ya-card-tag">Water</span>
+          </div>
+        </a>
+
+        <a href="lbg/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/lbg_b.jpg" alt="LED Bubble Gymnasts" />
+          </div>
+          <div class="ya-card-title">LED Bubble Gymnasts</div>
+          <div class="ya-card-meta">
+            <span>Gymnasts inside LED bubbles</span>
+            <span class="ya-card-tag">Water / pool</span>
+          </div>
+        </a>
+
+        <a href="mystrees/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/mystrees_b.jpg" alt="Mystrees walkabout act" />
+          </div>
+          <div class="ya-card-title">Mystrees</div>
+          <div class="ya-card-meta">
+            <span>Fantasy living trees</span>
+            <span class="ya-card-tag">Interactive</span>
+          </div>
+        </a>
+
+        <a href="sbs/index.html" class="ya-card">
+          <div class="ya-card-img">
+            <img src="images/mp/sbs_b.jpg" alt="Soap Bubble Show" />
+          </div>
+          <div class="ya-card-title">Soap Bubble Show</div>
+          <div class="ya-card-meta">
+            <span>Children &amp; family appeal</span>
+            <span class="ya-card-tag">Family</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= CTA Strip ======= -->
+  <section>
+    <div class="ya-container">
+      <div class="ya-cta-strip">
+        <div>
+          <h3>Planning a destination wedding, corporate gala or VIP celebration?</h3>
+          <p>
+            Share your date, venue and event style. We’ll suggest a curated short-list of acts
+            and a complete showflow for your main moments, entries and high points.
           </p>
         </div>
-
-        <div class="ya-pill-row">
-          <span class="ya-pill">Pyro Angels</span>
-          <span class="ya-pill">Phoenix Angels</span>
-          <span class="ya-pill">Helio Angels</span>
-          <span class="ya-pill">Signature Show</span>
-          <span class="ya-pill">Trio Aerial Acts</span>
-          <span class="ya-pill">Helio Clusters</span>
-        </div>
-
-        <div class="ya-grid">
-          <!-- NOTE: adjust image paths to match your repo structure -->
-          <a href="pyro/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/pyro/pyro_b.jpg" alt="Pyro Angels – fire and special effects act" />
-            </div>
-            <div class="ya-card-title">Pyro Angels</div>
-            <div class="ya-card-meta">
-              <span>Fire, sparks &amp; dramatic reveals</span>
-              <span class="ya-card-tag">Stage act</span>
-            </div>
+        <div class="ya-cta-actions">
+          <a class="ya-whatsapp" href="https://wa.me/919011080000" target="_blank" rel="nofollow">
+            <span>WhatsApp us</span>
           </a>
-
-          <a href="pa/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/pa/pa_b.jpg" alt="Phoenix Angels aerial act" />
-            </div>
-            <div class="ya-card-title">Phoenix Angels</div>
-            <div class="ya-card-meta">
-              <span>Aerial rebirth and rising visuals</span>
-              <span class="ya-card-tag">Aerial</span>
-            </div>
-          </a>
-
-          <a href="ha/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/ha/ha_b.jpg" alt="Helio Angels aerial performance" />
-            </div>
-            <div class="ya-card-title">Helio Angels</div>
-            <div class="ya-card-meta">
-              <span>Radiant aerial choreography</span>
-              <span class="ya-card-tag">Aerial</span>
-            </div>
-          </a>
-
-          <a href="ss/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/ss/ss_b.jpg" alt="Signature Show by Yogi's Angels" />
-            </div>
-            <div class="ya-card-title">Signature Show</div>
-            <div class="ya-card-meta">
-              <span>Custom-built showflow</span>
-              <span class="ya-card-tag">Production</span>
-            </div>
-          </a>
-
-          <a href="ta/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/ta/ta_b.jpg" alt="Trio Aerial Act" />
-            </div>
-            <div class="ya-card-title">Trio Aerial Act</div>
-            <div class="ya-card-meta">
-              <span>Three-artist aerial routine</span>
-              <span class="ya-card-tag">Aerial</span>
-            </div>
-          </a>
-
-          <a href="cha/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/cha/cha_b.jpg" alt="Cluster Helio Angel act" />
-            </div>
-            <div class="ya-card-title">Cluster Helio Angel</div>
-            <div class="ya-card-meta">
-              <span>Multiple performers, one halo</span>
-              <span class="ya-card-tag">Grand act</span>
-            </div>
-          </a>
-
-          <a href="tha/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/tha/tha_b.jpg" alt="Trio Helio Angels act" />
-            </div>
-            <div class="ya-card-title">Trio Helio Angels</div>
-            <div class="ya-card-meta">
-              <span>Expanded Helio choreography</span>
-              <span class="ya-card-tag">Aerial</span>
-            </div>
+          <a class="ya-outline" href="contacts/index.html">
+            Send enquiry form →
           </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ======= Stage & Bar Acts (example section, you can clone) ======= -->
-    <section class="ya-section">
-      <div class="ya-container">
-        <div class="ya-section-header">
-          <h2 class="ya-section-title">Stage &amp; Bar Acts</h2>
-          <p class="ya-section-sub">
-            Visual centrepieces for stages, bars and immersive guest experiences.
-          </p>
-        </div>
-
-        <div class="ya-grid">
-          <a href="laa/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/laa/laa_b.jpg" alt="Laser Angels act" />
-            </div>
-            <div class="ya-card-title">Laser Angels</div>
-            <div class="ya-card-meta">
-              <span>Light, laser &amp; movement</span>
-              <span class="ya-card-tag">Stage</span>
-            </div>
-          </a>
-
-          <a href="qa/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/qa/qa_b.jpg" alt="Quick Angels act" />
-            </div>
-            <div class="ya-card-title">Quick Angels</div>
-            <div class="ya-card-meta">
-              <span>Short, high-impact sets</span>
-              <span class="ya-card-tag">Stage</span>
-            </div>
-          </a>
-
-          <a href="fa/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/fa/fa_b.jpg" alt="Fusion Angels" />
-            </div>
-            <div class="ya-card-title">Fusion Angels</div>
-            <div class="ya-card-meta">
-              <span>Hybrid dance + aerial</span>
-              <span class="ya-card-tag">Stage</span>
-            </div>
-          </a>
-
-          <a href="aa/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/aa/aa_b.jpg" alt="Acro Angels" />
-            </div>
-            <div class="ya-card-title">Acro Angels</div>
-            <div class="ya-card-meta">
-              <span>Acrobatics &amp; balance</span>
-              <span class="ya-card-tag">Stage</span>
-            </div>
-          </a>
-
-          <a href="ua/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/ua/ua_b.jpg" alt="Ultra Violet Angels" />
-            </div>
-            <div class="ya-card-title">Ultra Violet Angels</div>
-            <div class="ya-card-meta">
-              <span>Blacklight, glow &amp; contrast</span>
-              <span class="ya-card-tag">Stage</span>
-            </div>
-          </a>
-
-          <a href="fia/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/fia/fia_b.jpg" alt="Fire Angels act" />
-            </div>
-            <div class="ya-card-title">Fire Angels</div>
-            <div class="ya-card-meta">
-              <span>Fire props &amp; choreography</span>
-              <span class="ya-card-tag">Stage</span>
-            </div>
-          </a>
-
-          <a href="cb/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/cb/scb_b.jpg" alt="Swarovski Champagne Chandelier Bar act" />
-            </div>
-            <div class="ya-card-title">Champagne Chandelier</div>
-            <div class="ya-card-meta">
-              <span>Swarovski champagne service</span>
-              <span class="ya-card-tag">Bar act</span>
-            </div>
-          </a>
-
-          <a href="mb/index.html" class="ya-card">
-            <div class="ya-card-img">
-              <img src="images/mb/mb_b.jpg" alt="Martini Bar act" />
-            </div>
-            <div class="ya-card-title">Martini Bar</div>
-            <div class="ya-card-meta">
-              <span>Iconic martini glass aerial</span>
-              <span class="ya-card-tag">Bar act</span>
-            </div>
-          </a>
-        </div>
+  <!-- ======= Blog Preview ======= -->
+  <section class="ya-section">
+    <div class="ya-container">
+      <div class="ya-section-header">
+        <h2 class="ya-section-title">From the blog</h2>
+        <p class="ya-section-sub">
+          Insights and ideas on entertainment for luxury weddings, corporate events and experiential celebrations.
+        </p>
       </div>
-    </section>
 
-    <!-- ======= CTA Strip ======= -->
-    <section>
-      <div class="ya-container">
-        <div class="ya-cta-strip">
-          <div>
-            <h3>Planning a wedding, corporate gala or VIP celebration?</h3>
-            <p>Share your date, venue and event style. We’ll suggest a curated short-list of acts and a complete showflow.</p>
-          </div>
-          <div class="ya-cta-actions">
-            <a class="ya-whatsapp" href="https://wa.me/919011080000" target="_blank" rel="nofollow">
-              <span>WhatsApp us</span>
-            </a>
-            <a class="ya-outline" href="contacts/index.html">
-              Send enquiry form →
-            </a>
-          </div>
-        </div>
+      <div class="ya-blog-grid">
+        <a href="blog/how-to-choose-acts-for-destination-wedding.html" class="ya-blog-card">
+          <div class="ya-blog-tag">Weddings</div>
+          <div class="ya-blog-title">How to Choose the Right Acts for a Destination Wedding in India</div>
+          <div class="ya-blog-meta">Entries, sangeet, reception &amp; after-parties.</div>
+        </a>
+
+        <a href="blog/entertainment-ideas-for-corporate-gala.html" class="ya-blog-card">
+          <div class="ya-blog-tag">Corporate</div>
+          <div class="ya-blog-title">High-Impact Entertainment Ideas for Corporate Galas</div>
+          <div class="ya-blog-meta">Brand reveals, CEO entries and awards moments.</div>
+        </a>
+
+        <a href="blog/pool-acts-for-luxury-resort-events.html" class="ya-blog-card">
+          <div class="ya-blog-tag">Pool &amp; Water</div>
+          <div class="ya-blog-title">Using Pool &amp; Water Acts to Transform Luxury Resort Events</div>
+          <div class="ya-blog-meta">How to stage pool shows safely and beautifully.</div>
+        </a>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <!-- ======= Footer ======= -->
   <footer>
-    <div class="ya-container ya-footer-row">
-      <div>© 2005–2025 Yogi's Angels International Entertainment. All rights reserved.</div>
-      <div class="ya-footer-social">
-        <span>Follow:</span>
-        <a href="https://www.facebook.com" target="_blank" rel="nofollow">Facebook</a>
-        <a href="https://www.instagram.com" target="_blank" rel="nofollow">Instagram</a>
+    <div class="ya-container">
+      <div class="ya-footer-grid">
+        <!-- Left: mini brand + download CTA -->
+        <div>
+          <div class="ya-footer-title">Yogi's Angels</div>
+          <div class="ya-footer-logo-small">
+            <img src="images/logo.jpg" alt="Yogi's Angels Logo small" />
+            <div class="ya-footer-logo-text">
+              <span>YOGI'S ANGELS</span>
+              <span>International Entertainment</span>
+            </div>
+          </div>
+          <p>
+            Original, curated international entertainment for weddings, corporate events and VIP celebrations —
+            operating from Goa, with performances across India &amp; overseas.
+          </p>
+          <!-- MOVED: ALL-IN-ONE PRESENTATION DOWNLOAD -->
+          <a href="assets/pdfs/all-acts.pdf" target="_blank" rel="nofollow" class="ya-footer-download-btn">
+            <span>Download all-in-one presentation</span>
+            <span>↓</span>
+          </a>
+        </div>
+
+        <!-- Middle: navigation -->
+        <div>
+          <div class="ya-footer-title">Navigate</div>
+          <div class="ya-footer-links">
+            <a href="index.html">Home</a>
+            <a href="aboutus/index.html">About</a>
+            <a href="#grand-acts">Acts</a>
+            <a href="blog/index.html">Blog</a>
+            <a href="contacts/index.html">Contact</a>
+          </div>
+        </div>
+
+        <!-- Right: contact + socials -->
+        <div>
+          <div class="ya-footer-title">Contact</div>
+          <p>
+            WhatsApp / Phone: <a href="tel:+919011080000">+91 90110 80000</a><br />
+            Email: <a href="mailto:contact@yogisangels.com">contact@yogisangels.com</a><br />
+            Goa, India
+          </p>
+          <div class="ya-footer-title" style="margin-top:10px;">Social</div>
+          <div class="ya-footer-social">
+            <a href="https://wa.me/919011080000" target="_blank" rel="nofollow">WhatsApp</a>
+            <a href="https://www.instagram.com/YogisAngels" target="_blank" rel="nofollow">Instagram</a>
+            <a href="https://www.facebook.com/gaurav.gondal.16/" target="_blank" rel="nofollow">Facebook</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ya-footer-bottom">
+        <div>© 2005–2025 Yogi's Angels International Entertainment. All rights reserved.</div>
+        <div>Site powered by GitHub Pages &amp; Cloudflare.</div>
       </div>
     </div>
   </footer>
